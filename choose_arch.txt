@@ -1,0 +1,17 @@
+# mermaid.live
+
+graph TD
+    A[Choose Org Data Architecture] --> B{Skillset of users?}
+    B --> |Data analysts| EDW[Data warehouse]
+    B --> |Analysts & Programmers| LH[Lakehouse]
+    B --> |Programmers| DL[Data lake]
+    B --> |Many Business units| DM[Data Mesh]
+
+    DM --> SW{Same warehouse tech?}
+    SW --> |Yes|EDW
+    SW -.-> |repeat\nfor\neach\norg\n\nNo|A
+
+    EDW --> SQL[SQL-first Product]
+    DL  ----> Py[Code-first Product]
+    LH --> |Mostly analysts| SQL
+    LH --> |Mostly programmers| Py
