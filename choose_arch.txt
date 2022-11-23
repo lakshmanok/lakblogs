@@ -1,4 +1,5 @@
 # mermaid.live
+# https://lakshmanok.medium.com/snowflake-or-databricks-bigquery-or-dataproc-redshift-or-emr-e40190c97ef8
 
 graph TD
     A[Choose Org Data Architecture] --> B{Skillset of users?}
@@ -17,7 +18,7 @@ graph TD
     LH --> |Mostly programmers| Py
 
 
-graph Prod
+graph TD
     A[Choose Product] --> B{Size of data platform?}
     B --> |Less than 300K per yr|Cloud 
     B --> |Greater than 1m per yr|C
