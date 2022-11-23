@@ -15,3 +15,31 @@ graph TD
     DL  ----> Py[Code-first Product]
     LH --> |Mostly analysts| SQL
     LH --> |Mostly programmers| Py
+
+
+graph Prod
+    A[Choose Product] --> B{Size of data platform?}
+    B --> |Less than 300K per yr|Cloud 
+    B --> |Greater than 1m per yr|C
+    
+    subgraph Small[Small org: consolidate in one cloud]
+        Cloud{Which cloud?} --> |AWS| P{Priority?}
+        P --> |Cost| R[Redshift/EMR]
+        P --> |Ease of use| SD[Snowflake/Databricks]
+
+        Cloud --> |Azure| SD
+        Cloud --> |GCP| BQ[BigQuery/Dataproc]
+
+        SD -.-> |Too costly?| BQ
+        R -.-> |Too hard?| BQ
+    end
+
+    subgraph Large[Large org]
+        C{Centralize?} --> |Yes|WC{One Cloud?}
+        WC --> |Yes, AWS| R2[Redshift/EMR]
+        WC --> |Yes, Azure| SD2[Snowflake/Databricks]
+        WC --> |Yes, GCP| BQ2[BigQuery/Dataproc]
+        WC --> |No, can have data\n in different cloud| BQ2
+
+        C --> |No|CA[Choose Org Architecture]
+    end
