@@ -1,0 +1,26 @@
+[
+    {
+        "id":   "Open AI GPT-3.5 Turbo",
+        "name": "gpt-3.5-turbo-1106",
+        "price_url": "https://openai.com/pricing",
+        "correct_answer": 0.12
+    },
+    {
+        "id":   "Meta Llama2 on AWS",
+        "name": "Llama 2 Chat (70B)",
+        "price_url": "https://aws.amazon.com/bedrock/pricing/",
+        "correct_answer": 0.2206
+    },
+    {
+        "id":   "Google Cloud Gemini Pro",
+        "name": "Gemini Pro",
+        "price_url": "https://cloud.google.com/vertex-ai/pricing",
+        "correct_answer": 0.12
+    },    
+    {
+        "id":   "Azure Open AI GPT-3.5 Turbo",
+        "name": "GPT-3.5-Turbo-1106",
+        "price_url": "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/",
+        "correct_answer": 0.17
+    }
+]
