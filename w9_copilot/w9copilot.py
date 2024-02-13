@@ -3,18 +3,16 @@ import pandas as pd
 import urllib.request
 import os
 import base64
+
+from langchain_core.messages import HumanMessage, AIMessage, get_buffer_string
 from langchain_google_vertexai import VertexAI
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_core.language_models.llms import LLM
 
 
 def ask_question(model: LLM, messages: [{}]) -> str:
-    question = messages[-1]["content"]
-    context = "This question is regarding a W9 form"
-    #context = messages[-5:] # last 5 messages only
-    #context = context[:(len(context)-1)] # remove the last message
-    #context = '\n'.join([f"{message['role']}: {message['content']}" for message in context])
+    question = condense_question(messages)
 
     prompt = ChatPromptTemplate.from_template("""
         You are a helpful tax advisor and will answer questions at a sixth-grade reading level.
@@ -26,18 +24,49 @@ def ask_question(model: LLM, messages: [{}]) -> str:
         Politely decline to answer questions that are about tax policy, state taxes, or tax reform.
         If necessary, ask clarifying questions.
         
-        **Context**
-        {context}
-        
         ** Question **
         {question}
     """)
 
     output_parser = StrOutputParser()
     chain = prompt | model | output_parser
-    response = chain.invoke({"context": context, "question": question})
-    print(context, question, '->', response)
+    response = chain.invoke({"question": question})
+    print(question, '->', response)
     return response
+
+
+def to_chat_history(messages: []) -> []:
+    chat_history = []
+    for message in messages:
+        if message["role"] == "User":
+            chat_history.append(HumanMessage(message["content"]))
+        else:
+            chat_history.append(AIMessage(message["content"]))
+    return chat_history
+
+
+def condense_question(messages: []) -> str:
+    if len(messages) < 2:
+        return messages[-1]['content']
+
+    chat_history = to_chat_history(messages[:-1])
+    prompt = PromptTemplate.from_template("""
+        Given the following conversation and a follow up question,
+        rephrase the follow up question to be a standalone question.
+
+        ** Chat History **:
+        {chat_history}
+
+        ** Follow up question **:
+        {question}
+
+        ** Standalone question **:
+    """)
+    output_parser = StrOutputParser()
+    chain = prompt | model | output_parser
+    return chain.invoke({"chat_history": get_buffer_string(chat_history), "question": messages[-1]["content"]})
+
+
 
 def download_pdf(url: str, filename: str) -> str:
     """Downloads a PDF using urllib.request"""
@@ -54,7 +83,7 @@ def display_pdf(file):
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
     # Embedding PDF in HTML
-    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="100%" type="application/pdf"></iframe>'
+    pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
 
     # Displaying File
     st.markdown(pdf_display, unsafe_allow_html=True)
@@ -80,41 +109,42 @@ if __name__ == '__main__':
     st.title("W9 Copilot")
     st.caption("🙋‍♂️💬️🤖 Demo of an assistant for SaaS workflows")
 
-    chat_pane, work_pane, past_pane = st.columns(3)
+    work_tab, history_tab = st.tabs(["Work", "History"])
+    with work_tab:
+        chat_pane, work_pane = st.columns([0.4, 0.6])
+        with work_pane:
+            st.header("Work pane")
+            display_pdf("cache/fw9.pdf")
 
-    with work_pane:
-        st.header("Work pane")
-        display_pdf("cache/fw9.pdf")
+        with chat_pane:
+            # clear chat history
+            def clear_chat_history():
+                st.session_state.messages = [{"role": "Assistant", "content": "How may I assist you today?"}]
+            st.button('Clear Chat History', on_click=clear_chat_history)
 
-    with chat_pane:
-        # clear chat history
-        def clear_chat_history():
-            st.session_state.messages = [{"role": "Assistant", "content": "How may I assist you today?"}]
-        st.button('Clear Chat History', on_click=clear_chat_history)
+            # display messages already in the session
+            if "messages" not in st.session_state:
+                st.session_state["messages"] = [
+                    {"role": "Assistant",
+                     "content": "️Hello! I'm your friendly copilot. How may I assist you today?"}
+                ]
+                for message in st.session_state["messages"]:
+                    display_message(message)
 
-        # display messages already in the session
-        if "messages" not in st.session_state:
-            st.session_state["messages"] = [
-                {"role": "Assistant",
-                 "content": "️Hello! I'm your friendly copilot. How may I assist you today?"}
-            ]
-            for message in st.session_state["messages"]:
+            # input field for user to ask questions
+            if prompt := st.chat_input("Ask question here..."):
+                message = {"role": "User", "content": prompt}
+                st.session_state.messages.append(message)
                 display_message(message)
 
-        # input field for user to ask questions
-        if prompt := st.chat_input("Ask question here..."):
-            message = {"role": "User", "content": prompt}
-            st.session_state.messages.append(message)
-            display_message(message)
+            # generate and display response from advisor
+            if st.session_state.messages[-1]["role"] == "User":
+                response = ask_question(model, st.session_state.messages)
+                message = {"role": "Assistant", "content": response}
+                st.session_state.messages.append(message)
+                display_message(message)
 
-        # generate and display response from advisor
-        if st.session_state.messages[-1]["role"] == "User":
-            response = ask_question(model, st.session_state.messages)
-            message = {"role": "Assistant", "content": response}
-            st.session_state.messages.append(message)
-            display_message(message)
-
-    with past_pane:
+    with history_tab:
         st.header("History")
         for message in st.session_state["messages"]:
             display_message(message)

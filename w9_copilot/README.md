@@ -28,5 +28,7 @@ http://localhost:8501
 * What's a disregarded entity?
 * Who's the IRS?
 * how many exemptions can i claim?
+* what's a federal tax classification?
+* What are the possible values?
 * 
  
