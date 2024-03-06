@@ -12,7 +12,7 @@ def init_gemini_pro(temperature: float = 0.0):
     gemini = dspy.Google("models/gemini-1.0-pro",
                          api_key=api_key,
                          temperature=temperature)
-    dspy.settings.configure(lm=gemini)
+    dspy.settings.configure(lm=gemini, max_tokens=1024)
 
 
 def init_gpt35(temperature: float = 0.0):
@@ -24,4 +24,4 @@ def init_gpt35(temperature: float = 0.0):
     gpt35 = dspy.OpenAI(model="gpt-3.5-turbo",
                         api_key=api_key,
                         temperature=temperature)
-    dspy.settings.configure(lm=gpt35)
+    dspy.settings.configure(lm=gpt35, max_tokens=1024)
