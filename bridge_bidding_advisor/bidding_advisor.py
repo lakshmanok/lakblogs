@@ -31,21 +31,13 @@ class Definitions(dspy.Module):
         return ""
 
 
-class Terms(dspy.Signature):
-    """
-    List of extracted entities
-    """
-    question = dspy.InputField()
-    answer = dspy.OutputField(format=list, desc="terms")
-
-
 class FindTerms(dspy.Module):
     """
     Extract bridge terms from a question
     """
     def __init__(self):
         super().__init__()
-        self.entity_extractor = dspy.Predict(Terms)
+        self.entity_extractor = dspy.Predict("question -> terms")
 
     def forward(self, question):
         max_num_terms = max(1, len(question.split())//4)
@@ -53,25 +45,21 @@ class FindTerms(dspy.Module):
         prediction = self.entity_extractor(
             question=f"{prompt}\n{question}"
         )
-        answer = prediction.answer
-        if "Answer: " in answer:
-            start = answer.rindex("Answer: ") + len("Answer: ")
+        answer = prediction.terms
+        if "Terms: " in answer:
+            start = answer.rindex("Terms: ") + len("Terms: ")
             answer = answer[start:]
-        return answer
+        return [a.strip() for a in answer.split(',')]
 
 
-class BiddingSystem(dspy.Module):
+def BiddingSystem():
     """
-    Rules for bidding in bridge
+    Retreives rules for bidding in bridge.
+    This is just a retriever and does not have any language model.
     """
-    def __init__(self):
-        super().__init__()
-        from chromadb.utils import embedding_functions
-        default_ef = embedding_functions.DefaultEmbeddingFunction()
-        self.prog = ChromadbRM(CHROMA_COLLECTION_NAME, CHROMADB_DIR, default_ef, k=3)
-
-    def forward(self, question):
-        return self.prog(question)
+    from chromadb.utils import embedding_functions
+    default_ef = embedding_functions.DefaultEmbeddingFunction()
+    return ChromadbRM(CHROMA_COLLECTION_NAME, CHROMADB_DIR, default_ef, k=3)
 
 
 class AdvisorSignature(dspy.Signature):
@@ -89,7 +77,7 @@ class BridgeBiddingAdvisor(dspy.Module):
         super().__init__()
         self.find_terms = FindTerms()
         self.definitions = Definitions()
-        self.bidding_system = BiddingSystem()
+        # self.bidding_system = BiddingSystem()
         self.prog = dspy.ChainOfThought(AdvisorSignature, n=3)
 
     def forward(self, question):
@@ -102,7 +90,7 @@ class BridgeBiddingAdvisor(dspy.Module):
             terms = [terms]
         definitions = [self.definitions(term) for term in terms]
         print("c:", definitions)
-        bidding_system = self.bidding_system(question)
+        bidding_system = BiddingSystem()(question)
         print("d:", shorten_list(bidding_system))
         prediction = self.prog(definitions=definitions,
                                bidding_system=bidding_system,
@@ -134,6 +122,7 @@ if __name__ == '__main__':
     questions = [
         "What is Stayman?",
         "When do you use Jacoby Transfers?",
+        "Playing Stayman and Transfers, what do you bid with 5-4 in the majors?"
     ]
 
     run("Zeroshot", ZeroShot(), questions)
@@ -141,11 +130,8 @@ if __name__ == '__main__':
     run("find_terms", FindTerms(), questions)
     run("bidding_system", BiddingSystem(), questions, shorten=True)
     run("bidding_advisor", BridgeBiddingAdvisor(), questions)
-    
-    exit(0)
-    
-    # Issue https://github.com/stanfordnlp/dspy/issues/575
-    
+    # exit(0)
+      
     # create labeled training dataset
     traindata = json.load(open("trainingdata.json", "r"))['examples']
     trainset = [dspy.Example(question=e['question'], answer=e['answer']) for e in traindata]

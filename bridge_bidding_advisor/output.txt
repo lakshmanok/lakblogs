@@ -1,0 +1,61 @@
+**Zeroshot**
+Prediction(
+    answer='Question: In the game of bridge, What is Stayman?\nAnswer: A conventional bid of 2♣ by responder after a 1NT opening bid, asking opener to bid a 4-card major suit if he has one, or 2NT if he has no 4-card major.'
+)
+Prediction(
+    answer='Question: In the game of bridge, When do you use Jacoby Transfers?\nAnswer: When you want to show a suit and a specific number of cards in that suit.'
+)
+Prediction(
+    answer='Question: In the game of bridge, Playing Stayman and Transfers, what do you bid with 5-4 in the majors?\nAnswer: 1NT'
+)
+
+**definitions**
+Stayman convention | Stayman is a bidding convention in the card game contract bridge. It is used by a partnership to find a 4-4 or 5-3 trump fit in a major suit after making a one notrump (1NT) opening bid and it has been adapted for use after a 2NT opening, a 1NT overcall, and many other natural notrump bids.
+Jacoby transfer | The Jacoby transfer, or simply transfers, in the card game contract bridge, is a convention initiated by responder following partner's notrump opening bid that forces opener to rebid in the suit ranked just above that bid by responder. For example, a response in diamonds forces a rebid in hearts and a response in hearts forces a rebid in spades. Transfers are used to show a weak hand with a long major suit, and to ensure that opener declare the hand if the final contract is in the suit transferred to, preventing the opponents from seeing the cards of the stronger hand.
+CRASH convention | In the game of contract bridge, CRASH (an acronym for Color-RAnk-SHape) is a defense against a strong 1♣ or a 1NT opening that first appeared in 1976 in an article by Kit Woolsey in The Bridge World. Within the CRASH framework, intervening calls after the 1NT opening denote either (a) two-suited hands of the same color (black or red), the same rank (major or minor), or the same shape (pointed or rounded) or (b) a natural one-suited hand (hearts or spades).
+Five-card majors | Five-card majors is a contract bridge bidding treatment common to many modern bidding systems. Its basic tenet is that an opening bid of one-of-a-major in first and second position guarantees at least five cards in that major. This method has become standard in North American tournament play, but European methods vary.
+
+**find_terms**
+['Stayman']
+['Jacoby Transfers']
+['Stayman', 'Transfers']
+
+**bidding_system**
+['holding or requests unusu ... 272', 'unusual holding or reques ... 280', '. ( iii ) smith : against ... 240']
+['( j ) over an overcall, t ... 1529', 'a garbage - stayman hand  ... 1503', 'garbage - stayman hand -  ... 1503']
+['stayman ( possibly a weak ... 1602', '( scrambling for a two -  ... 1601', '( i ) two hearts is weak  ... 1596']
+
+**bidding_advisor**
+a: What is Stayman?
+b: ['Stayman']
+c: ['Stayman convention | Stayman is a bidding convention in the card game contract bridge. It is used by a partnership to find a 4-4 or 5-3 trump fit in a major suit after making a one notrump (1NT) opening bid and it has been adapted for use after a 2NT opening, a 1NT overcall, and many other natural notrump bids.']
+d: ['holding or requests unusu ... 272', 'unusual holding or reques ... 280', '. ( iii ) smith : against ... 240']
+Stayman is a bidding convention in the card game contract bridge. It is used by a partnership to find a 4-4 or 5-3 trump fit in a major suit after making a one notrump (1NT) opening bid.
+a: When do you use Jacoby Transfers?
+b: ['Jacoby Transfers']
+c: ["Jacoby transfer | The Jacoby transfer, or simply transfers, in the card game contract bridge, is a convention initiated by responder following partner's notrump opening bid that forces opener to rebid in the suit ranked just above that bid by responder. For example, a response in diamonds forces a rebid in hearts and a response in hearts forces a rebid in spades. Transfers are used to show a weak hand with a long major suit, and to ensure that opener declare the hand if the final contract is in the suit transferred to, preventing the opponents from seeing the cards of the stronger hand."]
+d: ['( j ) over an overcall, t ... 1529', 'a garbage - stayman hand  ... 1503', 'garbage - stayman hand -  ... 1503']
+Jacoby transfers are used in bridge after a notrump opening bid by the responder to force the opener to rebid in the suit ranked just above that bid by the responder.
+a: Playing Stayman and Transfers, what do you bid with 5-4 in the majors?
+b: ['Stayman', 'Transfers']
+c: ["Namyats | In the card game bridge, Namyats is a conventional agreement to open hands with a long major suit that are too strong for a direct preemptive opening with a 'two-under' transfer bid. When the long suit is in hearts, opener bids 4♣ and when in spades bids 4. Accordingly, the method was originally named 'Four Club and Four Diamond Opening Transfers'; it is also referred to as 'Mitchell Transfers', after the developer of this bidding method, Victor Mitchell. The name 'Namyats' is the surname of Mitchell's bridge partner, Samuel Stayman, spelled backwards. In England, this convention is known as 'South African Texas', a name borrowed from a similar variant on the Texas transfer convention played over 1NT opening bids."]
+d: ['stayman ( possibly a weak ... 1602', '( scrambling for a two -  ... 1601', '( i ) two hearts is weak  ... 1596']
+2NT
+
+**optimized**
+a: What is Stayman?
+b: ['Stayman']
+c: ['Stayman convention | Stayman is a bidding convention in the card game contract bridge. It is used by a partnership to find a 4-4 or 5-3 trump fit in a major suit after making a one notrump (1NT) opening bid and it has been adapted for use after a 2NT opening, a 1NT overcall, and many other natural notrump bids.']
+d: ['holding or requests unusu ... 272', 'unusual holding or reques ... 280', '. ( iii ) smith : against ... 240']
+The provided context does not mention anything about smith card.
+a: When do you use Jacoby Transfers?
+b: ['Jacoby Transfers']
+c: ["Jacoby transfer | The Jacoby transfer, or simply transfers, in the card game contract bridge, is a convention initiated by responder following partner's notrump opening bid that forces opener to rebid in the suit ranked just above that bid by responder. For example, a response in diamonds forces a rebid in hearts and a response in hearts forces a rebid in spades. Transfers are used to show a weak hand with a long major suit, and to ensure that opener declare the hand if the final contract is in the suit transferred to, preventing the opponents from seeing the cards of the stronger hand."]
+d: ['( j ) over an overcall, t ... 1529', 'a garbage - stayman hand  ... 1503', 'garbage - stayman hand -  ... 1503']
+Start with 2C which is Stayman. If opener bids your 4-card major, raise it. If opener bids 2D, jump to the three-level in your shorter major, showing 5 cards in the other major.
+a: Playing Stayman and Transfers, what do you bid with 5-4 in the majors?
+b: ['Stayman', 'Transfers']
+c: ["Namyats | In the card game bridge, Namyats is a conventional agreement to open hands with a long major suit that are too strong for a direct preemptive opening with a 'two-under' transfer bid. When the long suit is in hearts, opener bids 4♣ and when in spades bids 4. Accordingly, the method was originally named 'Four Club and Four Diamond Opening Transfers'; it is also referred to as 'Mitchell Transfers', after the developer of this bidding method, Victor Mitchell. The name 'Namyats' is the surname of Mitchell's bridge partner, Samuel Stayman, spelled backwards. In England, this convention is known as 'South African Texas', a name borrowed from a similar variant on the Texas transfer convention played over 1NT opening bids."]
+d: ['stayman ( possibly a weak ... 1602', '( scrambling for a two -  ... 1601', '( i ) two hearts is weak  ... 1596']
+Start with 2C which is Stayman. If opener bids your 4-card major, raise it. If opener bids 2D, jump to the three-level in your shorter major, showing 5 cards in the other major.
+
