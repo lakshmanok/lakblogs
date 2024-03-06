@@ -1,0 +1,16 @@
+{
+    "examples": [
+        {
+            "question": "What is Smolen?",
+            "answer": "After a 1NT opening, Smolen allows responder to show 5-4 in the majors with game-forcing values."
+        },
+        {
+            "question": "How does Smolen work?",
+            "answer": "Start with 2C which is Stayman. If opener bids your 4-card major, raise it. If opener bids 2D, jump to the three-level in your shorter major, showing 5 cards in the other major."
+        },
+        {
+            "question": "When do you use Smolen?",
+            "answer": "Use Smolen as responder to 1NT when you have 5-4 in the majors and game forcing values."        
+        }    
+    ]
+}
