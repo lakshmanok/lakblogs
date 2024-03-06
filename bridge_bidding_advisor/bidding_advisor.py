@@ -84,10 +84,6 @@ class BridgeBiddingAdvisor(dspy.Module):
         print("a:", question)
         terms = self.find_terms(question)
         print("b:", terms)
-        if '[' in terms:
-            terms = terms[terms.rindex('[')+1:terms.rindex(']')].replace('"','').replace("'","").split(',')
-        else:
-            terms = [terms]
         definitions = [self.definitions(term) for term in terms]
         print("c:", definitions)
         bidding_system = BiddingSystem()(question)
