@@ -2,3 +2,5 @@
 *.log
 *.pyc
 /bwscompletesystem.html
+ben/*
+
