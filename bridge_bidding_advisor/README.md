@@ -6,6 +6,8 @@ The reason I chose bridge is that there is a lot of jargon, human judgement invo
 and several external tools that an advisor can use.  Kind of like an industry problem.
 But because it's a game, there is no confidential information involved.
 
+Accompanies Medium article [Building an AI Assistant with DSPy: A way to program and tune prompt-agnostic LLM agent pipelines](https://lakshmanok.medium.com/building-an-ai-assistant-with-dspy-2e1e749a1a95)
+
 ### How to build
 Clone this repo:
 ```commandline
