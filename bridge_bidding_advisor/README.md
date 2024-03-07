@@ -33,7 +33,7 @@ Edit the file bidding_advisor.py to initialize the appropriate API and comment o
 ```
 Index the bridege bidding system into Chroma DB:
 ```commandline
-python index_bidding_system.py
+python index_bridge_world_system.py
 ```
 Try it out:
 ```commandline
