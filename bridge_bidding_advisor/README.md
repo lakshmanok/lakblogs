@@ -31,6 +31,10 @@ Edit the file bidding_advisor.py to initialize the appropriate API and comment o
     dspy_init.init_gemini_pro(temperature=0.0)
     # dspy_init.init_gpt35(temperature=0.0)
 ```
+Index the bridege bidding system into Chroma DB:
+```commandline
+python index_bidding_system.py
+```
 Try it out:
 ```commandline
 python bidding_advisor.py
