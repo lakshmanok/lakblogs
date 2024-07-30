@@ -17,7 +17,7 @@ PROVIDER = "Gemini"
 # PROVIDER = "OpenAI"
 
 # Load key into the environment
-load_dotenv("../keys.env")
+load_dotenv("./keys.env")
 
 gmaps = googlemaps.Client(key=os.environ.get("GOOGLE_API_KEY"))
 
