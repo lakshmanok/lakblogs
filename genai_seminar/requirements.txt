@@ -1,0 +1,7 @@
+google.generativeai
+google-cloud-texttospeech
+pdfkit
+python-pptx
+pydub
+ffmpeg
+moviepy
