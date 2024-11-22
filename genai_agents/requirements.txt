@@ -1,3 +1,4 @@
+pydantic
 pyautogen[gemini]
 googlemaps
 bs4
@@ -6,3 +7,4 @@ langchain
 langchain-community
 langchain-openai
 langchain-google-genai
+deepeval

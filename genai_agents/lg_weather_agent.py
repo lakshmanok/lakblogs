@@ -4,12 +4,12 @@ import googlemaps
 import requests
 
 from typing import Annotated, Literal, TypedDict
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolNode
 from langgraph.graph import END, StateGraph, MessagesState
-from langgraph.checkpoint import MemorySaver
+# from langgraph.checkpoint import MemorySaver
 from langchain_core.messages import HumanMessage
 
 # Choose one
@@ -30,29 +30,36 @@ def latlon_geocoder(location: str) -> (float, float):
             round(geocode_result[0]['geometry']['location']['lng'], 4))
 
 
-@tool
-def get_weather_from_nws(latitude: float, longitude: float) -> str:
+def retrieve_weather_data(latitude: float, longitude: float) -> str:
     """Fetches weather data from the National Weather Service API for a specific geographic location."""
     base_url = "https://api.weather.gov/points/"
-    url = f"{base_url}{latitude},{longitude}"
-
+    points_url = f"{base_url}{latitude},{longitude}"
+    
     headers = {
         "User-Agent": "(weather_agent, vlakshman.com)"
     }  # Replace with your app info
 
     try:
-        response = requests.get(url, headers=headers)
+        print(f"Invoking {points_url}")
+        response = requests.get(points_url, headers=headers)
         response.raise_for_status()  # Raise an exception for bad responses (4xx or 5xx)
         metadata = response.json()
         # Access specific properties (adjust based on the API response structure)
         forecast_url = metadata.get("properties", {}).get("forecast")
+        
+        print(f"Invoking {forecast_url}")
         response = requests.get(forecast_url, headers=headers)
         response.raise_for_status()  # Raise an exception for bad responses (4xx or 5xx)
         weather_data = response.json()
         return weather_data.get('properties', {}).get("periods")
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data: {e}")
-    return None
+    return None    
+
+@tool
+def get_weather_from_nws(latitude: float, longitude: float) -> str:
+    """Fetches weather data from the National Weather Service API for a specific geographic location."""
+    return retrieve_weather_data(latitude, longitude)
 
 
 tools = [latlon_geocoder, get_weather_from_nws]
@@ -82,21 +89,23 @@ def call_model(state: MessagesState):
     return {"messages": [response]}
 
 
-# Define a new graph: nodes and edges
-workflow = StateGraph(MessagesState)
-workflow.add_node("assistant", call_model)
-workflow.add_node("tools", ToolNode(tools))
+# create the workflow
+def create_app():
+    # Define a new graph: nodes and edges
+    workflow = StateGraph(MessagesState)
+    workflow.add_node("assistant", call_model)
+    workflow.add_node("tools", ToolNode(tools))
 
-workflow.set_entry_point("assistant")
-workflow.add_conditional_edges("assistant", assistant_next_node)
-workflow.add_edge("tools", "assistant")
+    workflow.set_entry_point("assistant")
+    workflow.add_conditional_edges("assistant", assistant_next_node)
+    workflow.add_edge("tools", "assistant")
 
-# we don't need state, so we don't create a checkpointer
-checkpointer = None  # MemorySaver()
-app = workflow.compile(checkpointer=checkpointer)
+    # we don't need state, so we don't create a checkpointer
+    checkpointer = None  # MemorySaver()
+    app = workflow.compile(checkpointer=checkpointer)
+    return app
 
-
-def run_query(question: str) -> str:
+def run_query(app, question: str) -> str:
     system_message = """
     Follow the steps in the example below to retrieve the weather information requested.
 
@@ -117,7 +126,8 @@ def run_query(question: str) -> str:
     )
     return [m.content.strip() for m in final_state["messages"]]
 
-
-result = run_query("Is it raining in Chicago?")
-print('\n'.join(result))
+if __name__ == '__main__':
+    app = create_app()
+    result = run_query(app, "Is it raining in Chicago?")
+    print('\n'.join(result))
 
