@@ -2,7 +2,7 @@ Accompanies the blog post:
 
 PydanticAI: an OSS framework that supports evaluation-driven development of model-agnostic agents
 
-https://medium.com/@lakshmanok/pydanticai-an-oss-framework-that-supports-evaluation-driven-development-of-model-agnostic-agents-d9293ac81d91
+https://medium.com/@lakshmanok/evaluation-driven-development-for-agentic-applications-using-pydanticai-d9293ac81d91
 
 Instructions to run the PydanticAI tutorial:
 
