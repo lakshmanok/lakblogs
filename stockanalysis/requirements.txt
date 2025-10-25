@@ -3,3 +3,6 @@ google-genai
 yfinance
 pydantic
 python-dotenv
+langchain
+langchain-google-genai
+pydantic-ai

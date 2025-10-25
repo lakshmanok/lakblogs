@@ -3,7 +3,7 @@ import yfinance as yf
 from data_model import StockReport, BulletPoint
 from typing import List
 
-async def get_stock_price(ticker):
+async def get_stock_price(ticker) -> float:
     """Gets the latest price of a stock using yfinance."""
     print(f"Calling Yahoo Finance for price of {ticker}")
     stock = yf.Ticker(ticker)
@@ -11,7 +11,7 @@ async def get_stock_price(ticker):
     print(todays_data)
     return todays_data['Close'][0]
 
-async def get_stock_price_mock(ticker):
+async def get_stock_price_mock(ticker) -> float:
     return 236.40
 
 
