@@ -25,6 +25,7 @@ async def generate_analysis(ticker) -> StockReport:
     )
     print("data received")
     json_data = response.text
+    print(json_data)
     obj: StockReport = response.parsed
     return obj
 
