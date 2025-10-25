@@ -1,6 +1,7 @@
 
 import yfinance as yf
-from .data_model import StockReport
+from data_model import StockReport, BulletPoint
+from typing import List
 
 async def get_stock_price(ticker):
     """Gets the latest price of a stock using yfinance."""
@@ -22,6 +23,7 @@ def render_report(report: StockReport) -> str:
             result += f"* **{bullet.title}** {bullet.explanation}\n"
         return result
 
+    newl = "\n   "
     result = f"""
 ## Analysis report for {report.company.name} ({report.company.ticker}) at {report.company.latest_price}
 
@@ -29,7 +31,7 @@ def render_report(report: StockReport) -> str:
 {report.company_overview.what_company_does}
 **Industry:** {report.company_overview.industry}
 **Products:** 
-    {"\n    ".join(report.company_overview.key_products_or_segments)}
+    {newl.join(report.company_overview.key_products_or_segments)}
 
 ### Key Financial Data
 **Market cap:** {report.key_financial_data.market_cap}

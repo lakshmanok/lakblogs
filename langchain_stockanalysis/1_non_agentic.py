@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import argparse
-import json
-import os
+import asyncio
 from typing import List
 
 from google import genai
@@ -30,7 +29,7 @@ async def generate_analysis(ticker) -> StockReport:
     return obj
 
 
-def main():
+async def main():
     """The main function."""
     parser = argparse.ArgumentParser(description="Create a stock analysis report.")
     parser.add_argument("ticker", help="The stock ticker symbol.")
@@ -38,9 +37,9 @@ def main():
 
     load_dotenv(dotenv_path="../keys.env") # GEMINI_API_KEY
 
-    report = generate_analysis(args.ticker)
+    report = await generate_analysis(args.ticker)
     print(tools.render_report(report))
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
