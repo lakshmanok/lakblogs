@@ -16,7 +16,7 @@ async def get_stock_price_mock(ticker) -> float:
 
 
 def render_report(report: StockReport) -> str:
-
+    """Render the report in Markdown format"""
     def format_bullets(bullets: List[BulletPoint]) -> str:
         result = ""
         for bullet in bullets:

@@ -6,3 +6,4 @@ python-dotenv
 langchain
 langchain-google-genai
 pydantic-ai
+deepagents

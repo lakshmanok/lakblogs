@@ -63,6 +63,10 @@ Now, let's see whether LangChain and ADK make this easier, and how.  I'll do bot
 ## LangChain 1.0
 Let's build the same use case with LangChain
 
+
+One big advantage with building with LangChain is the ability to incorporate middleware and horizontal capabilities easily.
+https://docs.langchain.com/oss/python/langchain/middleware
+
 ## Google ADK
 Let's build the same use case with Google ADK
 
