@@ -44,7 +44,6 @@ async def generate_company(ticker) -> data_model.Company:
         f"""
         Get company information for {ticker}. If the company is commonly known by another name, provide that name also.
         For example, for WW, the name would be "WW International Inc., formerly Weight Watchers International, Inc."
-        </example>
         """,
         output_type=data_model.Company
     )

@@ -5,7 +5,7 @@ from typing import List
 
 from langchain.agents import create_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.agents.middleware import wrap_tool_call
+# from langchain.agents.middleware import wrap_tool_call -- this is cool, allowing you to intercept anywhere
 from langchain.agents.structured_output import ToolStrategy
 from langchain_core.messages import ToolMessage
 from langchain.tools import tool
@@ -20,18 +20,6 @@ def get_stock_price(ticker: str) -> float:
         # no way to call async tools!
         tools.get_stock_price_mock(ticker)
     )
-
-@wrap_tool_call
-def cache_tool_results(request, handler):
-    """Cache results of stock & date and return results from cache if possible."""
-    try:
-        return handler(request)
-    except Exception as e:
-        # Return a custom error message to the model
-        return ToolMessage(
-            content=f"Tool error: Please check your input and try again. ({str(e)})",
-            tool_call_id=request.tool_call["id"]
-        )
 
 
 async def generate_analysis(ticker) -> StockReport:
@@ -54,7 +42,7 @@ async def generate_analysis(ticker) -> StockReport:
         # Bug: with ProviderStrategy https://github.com/langchain-ai/langchainjs/issues/8585
         response_format=ToolStrategy(StockReport)
     )
-    result = agent.invoke(
+    result = await agent.ainvoke(
         {
             "messages": [
                 {"role": "user", "content": f"Create a report on {ticker}."}
@@ -80,3 +68,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+

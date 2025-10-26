@@ -53,11 +53,12 @@ async def revise_article(self, topic: str, initial_draft: Article, panel_review:
         return result
 </pre>
 
-You can see the explicit use of long-term memory (ltm), Jinja templating of prompts (PromptService), and logging for evals. In a short example, I don't want to have to build the long-term memory, evals, etc. so it's necessarily incomplete, but we can quickly see what a composable approach with Pydantic AI would look like.
-
+You can see the explicit use of long-term memory (ltm), Jinja templating of prompts (PromptService), and logging for evals. In a short example, I don't want to have to build the long-term memory, logging for evals, etc. so it's necessarily incomplete, but we can see what the subagents approach with Pydantic AI would look like.
 
 
 As I said, the limitations of this approach started to become evident as we started to build Obin. It is fine for small projects (and allows an individual developer to move fast), but breaks down for larger teams and as you start to use LLM-specific capabilities.
+
+Now, let's see whether LangChain and ADK make this easier, and how.  I'll do both the monolithic application and the more realistic sub-agents approach.
 
 ## LangChain 1.0
 Let's build the same use case with LangChain
