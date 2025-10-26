@@ -11,8 +11,7 @@ import tools
 
 async def generate_analysis(ticker) -> StockReport:
     """Generates a stock analysis using the Gemini API."""
-    price = await tools.get_stock_price_mock(ticker)
-
+    
     print("Calling Gemini for StockReport")
     model_settings = GeminiModelSettings(
                 temperature=0.25,

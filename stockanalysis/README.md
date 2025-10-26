@@ -11,7 +11,7 @@ The limitations of the composable agents + LLM abstraction approach started to b
 
 The release of LangChain 1.0 and the rapid shipping speed of Google ADK prompted us to take a second look at these frameworks. Are they a better choice? What do I want in an agent framework?
 * It should simplify the building of production applications. (as opposed to toy demos)
-* We should be able to easily collect datasets that we can use for evaluation and continuous training. This is a key value-proposition of Obin.
+* We should be able to easily collect datasets that we can use for evaluation and continuous training. This is a key value-proposition of Obin (my company! We are hiring. See open positions here: <https://www.obin.ai/careers/>).
 * We should be able to run and test agents in isolation.
 * We should be able to easily view traces, following a single user request or data preparation job end-to-end.
 * We should be able to drop down to the model provider's unique capabilities (Google URL context grounding, Claude skills, etc.) at any time
@@ -67,7 +67,17 @@ Let's build the same use case with LangChain
 One big advantage with building with LangChain is the ability to incorporate middleware and horizontal capabilities easily.
 https://docs.langchain.com/oss/python/langchain/middleware
 
+You can boostrap logging for evals onto agents through middleware, but it is still one agent at a time.
+Tracing can be accomplished through LangSmith or integration with Arize Phoenix is straightforward.
+
 ## Google ADK
 Let's build the same use case with Google ADK
 
 ## Summary Thoughts
+
+
+
+<em> 
+Lak is co-founder and CTO of Obin.ai which is building deep domain agents for finance.
+We are hiring. Please see open positions here: <https://www.obin.ai/careers/> 
+</em>

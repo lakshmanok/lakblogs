@@ -7,3 +7,4 @@ langchain
 langchain-google-genai
 pydantic-ai
 deepagents
+google-adk
