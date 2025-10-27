@@ -545,7 +545,7 @@ LangChain 1.0 is still immature:
 * Tool calls have to be synchronous, and so this will add latency to many applications that wrap remotely hosted APIs via tool calls.
 * There is a lot of confusion between model and agent in the API. This is likely to get worse as more capabilities get added. Seriously, they should have copied or adopted Pydantic AI's clean API surface instead of trying to invent their own.
 
-Between LangChain 1.0 and Google ADK, I'd choose LangChain. If, like us, you use Pydantic AI today, I'd wait a couple of months before considering LangChain. If you are not using an agent framework today, and want to build high-level agents, use LangChain 1.0. But prepare to be frustrated.
+Between LangChain 1.0 and Google ADK, I'd choose LangChain. Pydantic AI is clean and nice, but falls down for larger teams and projects. If you are not using an agent framework today, and want to build high-level agents, use LangChain 1.0. But prepare to be frustrated.
 
 <em> 
 Lak is co-founder and CTO of Obin.ai which is building deep domain agents for finance.
