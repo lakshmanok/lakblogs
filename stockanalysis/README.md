@@ -411,7 +411,7 @@ async def generate_analysis(ticker) -> data_model.StockReport:
     return result["messages"][-1].content
 ```
 
-The key benefit here is how it was to ask the final agent to *weave* together the information into a coherent report and go back and ask *any* agent to redo its work given the work.  If the definition of an agentic application is that you can call tools and subagents in a loop, this final change is what makes the application fully agentic.
+The key benefit here is how easy it was to ask the final agent to *weave* together the information into a coherent report and go back and ask *any* agent to redo its work given the work.  If the definition of an agentic application is that you can call tools and subagents in a loop, this final change is what makes the application fully agentic.
 
 The full code for a deep agent implementation is at <https://github.com/lakshmanok/lakblogs/blob/main/stockanalysis/3c_langchain_deepagents.py>
 
@@ -549,5 +549,5 @@ Between LangChain 1.0 and Google ADK, I'd choose LangChain. If, like us, you use
 
 <em> 
 Lak is co-founder and CTO of Obin.ai which is building deep domain agents for finance.
-We are hiring. Please see open positions here: <https://www.obin.ai/careers/> 
+We are hiring. Please see open positions here: https://www.obin.ai/careers/ 
 </em>
