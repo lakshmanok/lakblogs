@@ -533,18 +533,6 @@ Ultimately, Google ADK gives me TensorFlow 1.0 vibes. It's written by engineers 
 
 Google builds great tools -- as you can see from this post, I really love Gemini's capabilities, and its built-in tools like context caching, search tool, UrlContext, etc. are incredibly effective in production applications. But they seem to consistently drop the ball when it comes to developer frameworks. The tools (and LLM) are great because they are tested at Google scale. Unfortunately, it's a double-edged sword. The developer framework is hard to understand and use because the needs of internal Google are very unlike the needs of everyday applications.
 
-## Considerations
-
-I started out saying that I want the following in an agent framework:
-* It should simplify the building of production applications. (as opposed to toy demos)
-* We should be able to easily collect datasets that we can use for evaluation and continuous training.
-* We should be able to run and test agents in isolation.
-* We should be able to easily view traces, following a single user request or data preparation job end-to-end.
-* We should be able to drop down to the model provider's unique capabilities (Google URL context grounding, Claude skills, etc.) at any time
-* We should be able to take control of the agentic loop for workflows.
-
-
-
 ## Summary Thoughts
 LangChain 1.0 is very promising:
 * The middleware hooks will enable a large ecosystem of tools to hooking into LangChain. We already see this with observability (Arize), guardrails (Guardrails AI), etc. 
