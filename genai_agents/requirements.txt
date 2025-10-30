@@ -1,5 +1,5 @@
 pydantic
-pyautogen[gemini]
+ag2[gemini]
 googlemaps
 bs4
 langgraph
