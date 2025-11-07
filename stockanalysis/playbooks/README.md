@@ -1,5 +1,8 @@
 # Stock Analysis with Playbooks
 
+**Python 3.12+ is required**
+**Anthropic API key exported to ANTHROPIC_API_KEY is required**
+
 1. Install playbooks from github branch 0.7.0
 
 ```
