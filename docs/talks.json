@@ -1,0 +1,344 @@
+[
+  {
+    "title": "Coffee with a Googler: career and books",
+    "topic": "career",
+    "date": "2018-10",
+    "event": "Coffee with a Googler",
+    "url": "https://www.youtube.com/watch?v=Ie1OdNMnrig",
+    "thumbnail": "assets/talk-thumbnails/Ie1OdNMnrig.jpg",
+    "featured": true
+  },
+  {
+    "title": "Agent frameworks in production",
+    "topic": "agents",
+    "date": "2025-07",
+    "event": "Agents in Production",
+    "url": "https://www.youtube.com/watch?v=HUHjSFWr9pg",
+    "thumbnail": "assets/talk-thumbnails/HUHjSFWr9pg.jpg",
+    "featured": true
+  },
+  {
+    "title": "Agentic AI in context: from Kalman filters to today's agents",
+    "topic": "agents",
+    "date": "2025-12",
+    "event": "All About Data podcast",
+    "url": "https://www.youtube.com/watch?v=OXgkkZufFfM",
+    "thumbnail": "assets/talk-thumbnails/OXgkkZufFfM.jpg",
+    "featured": true
+  },
+  {
+    "title": "From AI skeptic to agentic AI founder",
+    "topic": "strategy",
+    "date": "2026-01",
+    "event": "Joe Reis podcast",
+    "url": "https://www.youtube.com/watch?v=KewT_73gI5E",
+    "thumbnail": "assets/talk-thumbnails/KewT_73gI5E.jpg",
+    "featured": true
+  },
+  {
+    "title": "Driving efficiency and maximizing returns with Google Cloud AI & ML",
+    "topic": "strategy",
+    "date": null,
+    "event": "Cloud N Clear · Episode 85 · Miles Ward",
+    "url": "https://www.youtube.com/watch?v=WEH8UCwMzjc",
+    "thumbnail": "assets/talk-thumbnails/WEH8UCwMzjc.jpg",
+    "featured": false
+  },
+  {
+    "title": "Data considerations for early-stage startups",
+    "topic": "platforms",
+    "date": "2022",
+    "event": "Google Cloud",
+    "url": "https://www.youtube.com/watch?v=__yQllOw5hY",
+    "thumbnail": "assets/talk-thumbnails/__yQllOw5hY.jpg",
+    "featured": true
+  },
+  {
+    "title": "Lead Your Company Towards Data-Powered Innovation",
+    "topic": "strategy",
+    "date": "2020-09",
+    "event": "Google Cloud Next",
+    "url": "https://www.youtube.com/watch?v=T6rdJ9n8Xi8",
+    "thumbnail": "assets/talk-thumbnails/T6rdJ9n8Xi8.jpg",
+    "featured": true
+  },
+  {
+    "title": "Let's talk data analytics",
+    "topic": "strategy",
+    "date": "2022",
+    "event": "Google Cloud event",
+    "url": "https://www.youtube.com/watch?v=SLLwkYv-x2s",
+    "thumbnail": "assets/talk-thumbnails/SLLwkYv-x2s.jpg",
+    "featured": false
+  },
+  {
+    "title": "Machine Learning Design Patterns for MLOps",
+    "topic": "agents",
+    "date": "2020-08",
+    "event": "Google Developer Group DevFest",
+    "url": "https://www.youtube.com/watch?v=_Ni6JWdeCew",
+    "thumbnail": "assets/talk-thumbnails/_Ni6JWdeCew.jpg",
+    "featured": false
+  },
+  {
+    "title": "Why veterans should consider a career in data science",
+    "topic": "career",
+    "date": "2022-02",
+    "event": "Data Canteen · Ted Hallum",
+    "url": "https://www.youtube.com/watch?v=Fm2S3HsJbOw",
+    "thumbnail": "assets/video-placeholder.svg",
+    "featured": true
+  },
+  {
+    "title": "Machine Learning and Bayesian Statistics in Minutes",
+    "topic": "platforms",
+    "date": "2019-09",
+    "event": "Future of Your Data Warehouse",
+    "url": "https://www.youtube.com/watch?v=7Dyp7nGt5uA",
+    "thumbnail": "assets/talk-thumbnails/7Dyp7nGt5uA.jpg",
+    "featured": false
+  },
+  {
+    "title": "Building a modern data platform",
+    "topic": "platforms",
+    "date": "2021-05",
+    "event": "Panel with Mixpanel, Fivetran, and Census",
+    "url": "https://www.youtube.com/watch?v=pIeuhvzwtNc",
+    "thumbnail": "assets/talk-thumbnails/pIeuhvzwtNc.jpg",
+    "featured": true
+  },
+  {
+    "title": "Explaining image ML model predictions",
+    "topic": "platforms",
+    "date": "2021-04",
+    "event": "Cloud OnAir",
+    "url": "https://www.youtube.com/watch?v=CiuNOcjfqrc",
+    "thumbnail": "assets/talk-thumbnails/CiuNOcjfqrc.jpg",
+    "featured": false
+  },
+  {
+    "title": "Machine Learning Design Patterns: between Beam and a hard place",
+    "topic": "agents",
+    "date": "2022-07",
+    "event": "",
+    "url": "https://www.youtube.com/watch?v=1Qg708KIIeA",
+    "thumbnail": "assets/talk-thumbnails/1Qg708KIIeA.jpg",
+    "featured": true
+  },
+  {
+    "title": "Building an agile Data and AI Platform with Google Cloud",
+    "topic": "platforms",
+    "date": "2021",
+    "event": "Toronto Serverless",
+    "url": "https://www.youtube.com/watch?v=ntBEQdD1IeQ",
+    "thumbnail": "assets/talk-thumbnails/ntBEQdD1IeQ.jpg",
+    "featured": false
+  },
+  {
+    "title": "Feature engineering in BigQuery and TensorFlow 2.0/Keras",
+    "topic": "platforms",
+    "date": "2019-11",
+    "event": "Kirkland",
+    "url": "https://www.youtube.com/watch?v=H_jf-_BV79Q",
+    "thumbnail": "assets/talk-thumbnails/H_jf-_BV79Q.jpg",
+    "featured": false
+  },
+  {
+    "title": "Google Cloud Platform Vision for Data Analytics",
+    "topic": "platforms",
+    "date": "2021-06",
+    "event": "Launch of Actian Avalanche on Google Cloud",
+    "url": "https://vimeo.com/560560405",
+    "thumbnail": "assets/talk-thumbnails/560560405.jpg",
+    "featured": false
+  },
+  {
+    "title": "Leverage Prefab ML Pipelines in Vertex AI",
+    "topic": "platforms",
+    "date": "2021-11",
+    "event": "GDE Fest",
+    "url": "https://www.youtube.com/watch?v=Hp7P99rsRpo",
+    "thumbnail": "assets/talk-thumbnails/Hp7P99rsRpo.jpg",
+    "featured": true
+  },
+  {
+    "title": "How to Automatically Optimize Retail Sales with BigQuery ML",
+    "topic": "platforms",
+    "date": "2019-04",
+    "event": "Cloud OnAir",
+    "url": "https://www.youtube.com/watch?v=wexBUufdBHQ",
+    "thumbnail": "assets/talk-thumbnails/wexBUufdBHQ.jpg",
+    "featured": false
+  },
+  {
+    "title": "MLOps: automating CI/CD with Kubeflow Pipelines",
+    "topic": "platforms",
+    "date": "2020-02",
+    "event": "Seattle",
+    "url": "https://www.youtube.com/watch?v=_qhzNKlubgU",
+    "thumbnail": "assets/talk-thumbnails/_qhzNKlubgU.jpg",
+    "featured": false
+  },
+  {
+    "title": "Using public datasets on Google Cloud Platform",
+    "topic": "platforms",
+    "date": "2018-09",
+    "event": "Cloud OnAir",
+    "url": "https://www.youtube.com/watch?v=bpL5Gx7dNLs",
+    "thumbnail": "assets/talk-thumbnails/bpL5Gx7dNLs.jpg",
+    "featured": false
+  },
+  {
+    "title": "End-to-End Machine Learning with TensorFlow on Google Cloud Platform",
+    "topic": "platforms",
+    "date": "2018-03",
+    "event": "Cloud OnAir",
+    "url": "https://www.youtube.com/watch?v=wUqluLlGg4g",
+    "thumbnail": "assets/talk-thumbnails/wUqluLlGg4g.jpg",
+    "featured": false
+  },
+  {
+    "title": "Training Image & Text Classification Models Faster with TPUs",
+    "topic": "platforms",
+    "date": "2019-03",
+    "event": "San Francisco",
+    "url": "https://www.youtube.com/watch?v=V2GsrOwhvSw",
+    "thumbnail": "assets/talk-thumbnails/V2GsrOwhvSw.jpg",
+    "featured": false
+  },
+  {
+    "title": "Processing forms automatically using Document AI",
+    "topic": "platforms",
+    "date": "2020-11",
+    "event": "Cloud OnAir",
+    "url": "https://www.youtube.com/watch?v=HQiyEXOQXIc",
+    "thumbnail": "assets/talk-thumbnails/HQiyEXOQXIc.jpg",
+    "featured": false
+  },
+  {
+    "title": "Solution Engineering at Google and the future of the industry",
+    "topic": "strategy",
+    "date": "2020-06",
+    "event": "The Digital Native Podcast",
+    "url": "https://www.youtube.com/watch?v=1Vg6f0HJo4w",
+    "thumbnail": "assets/talk-thumbnails/1Vg6f0HJo4w.jpg",
+    "featured": false
+  },
+  {
+    "title": "Infuse Your Business with Machine Learning",
+    "topic": "strategy",
+    "date": "2017-03",
+    "event": "Google Cloud Next",
+    "url": "https://www.youtube.com/watch?v=OyOYNCy7Wwk",
+    "thumbnail": "assets/talk-thumbnails/OyOYNCy7Wwk.jpg",
+    "featured": false
+  },
+  {
+    "title": "What's New in TensorFlow, and How GCP Developers Benefit",
+    "topic": "platforms",
+    "date": "2019-04",
+    "event": "Google Cloud Next",
+    "url": "https://www.youtube.com/watch?v=apdK5-njfks",
+    "thumbnail": "assets/talk-thumbnails/apdK5-njfks.jpg",
+    "featured": false
+  },
+  {
+    "title": "Data Science on the Cloud in Python",
+    "topic": "platforms",
+    "date": "2016-07",
+    "event": "PyData Singapore",
+    "url": "https://www.youtube.com/watch?v=dMFBu6Fz0J0",
+    "thumbnail": "assets/talk-thumbnails/dMFBu6Fz0J0.jpg",
+    "featured": false
+  },
+  {
+    "title": "The Zen guide to getting your data ready for Machine Learning",
+    "topic": "platforms",
+    "date": "2017-12",
+    "event": "Tel Aviv",
+    "url": "https://www.youtube.com/watch?v=2jRUwcOu5Dk",
+    "thumbnail": "assets/talk-thumbnails/2jRUwcOu5Dk.jpg",
+    "featured": false
+  },
+  {
+    "title": "End-to-end machine learning with TensorFlow on Google Cloud Platform",
+    "topic": "platforms",
+    "date": "2018-02",
+    "event": "Chicago",
+    "url": "https://www.youtube.com/watch?v=72XxyRV6M-M",
+    "thumbnail": "assets/talk-thumbnails/72XxyRV6M-M.jpg",
+    "featured": false
+  },
+  {
+    "title": "Design Patterns for ML Infrastructure",
+    "topic": "agents",
+    "date": "2021-02",
+    "event": "Data Works, Maryland",
+    "url": "https://www.youtube.com/watch?v=GMU30i69xww",
+    "thumbnail": "assets/talk-thumbnails/GMU30i69xww.jpg",
+    "featured": false
+  },
+  {
+    "title": "Crossing the Chasm: Patterns to Develop, Operationalize, and Maintain ML Models",
+    "topic": "agents",
+    "date": "2018",
+    "event": "Google Cloud Next",
+    "url": "https://www.youtube.com/watch?v=BDjEksUdLz8",
+    "thumbnail": "assets/talk-thumbnails/BDjEksUdLz8.jpg",
+    "featured": false
+  },
+  {
+    "title": "BigQuery GIS product introduction",
+    "topic": "platforms",
+    "date": "2018-07",
+    "event": "",
+    "url": "https://www.youtube.com/watch?v=2YqCz1Fzx-0",
+    "thumbnail": "assets/talk-thumbnails/2YqCz1Fzx-0.jpg",
+    "featured": false
+  },
+  {
+    "title": "How all your data leads to Cloud Machine Learning",
+    "topic": "platforms",
+    "date": "2018-07",
+    "event": "San Francisco",
+    "url": "https://www.youtube.com/watch?v=-mCZcEYTbxg",
+    "thumbnail": "assets/video-placeholder.svg",
+    "featured": false
+  },
+  {
+    "title": "Auto-awesome: advanced data science on Google Cloud Platform",
+    "topic": "platforms",
+    "date": "2017-03",
+    "event": "Google Cloud Next",
+    "url": "https://www.youtube.com/watch?v=Jp-qJFF9jww",
+    "thumbnail": "assets/talk-thumbnails/Jp-qJFF9jww.jpg",
+    "featured": false
+  },
+  {
+    "title": "Training Image & Text Classification Models Faster with TPUs on Cloud ML Engine",
+    "topic": "platforms",
+    "date": "2018-11",
+    "event": "Cloud AI Huddle",
+    "url": "https://www.youtube.com/watch?v=hN_wL_cYQ_M",
+    "thumbnail": "assets/talk-thumbnails/hN_wL_cYQ_M.jpg",
+    "featured": false
+  },
+  {
+    "title": "How Agentic AI will impact Our Future - Dr. Lak's Journey of Predictions with Adi Naidu",
+    "topic": "career",
+    "date": "2026-06",
+    "event": "Jack of All Journeys · Adi Naidu",
+    "url": "https://www.youtube.com/watch?v=YUBmd7NyhgM",
+    "thumbnail": "assets/talk-thumbnails/YUBmd7NyhgM.jpg",
+    "featured": true
+  },
+  {
+    "title": "AI FDE Jobs Are Growing: What Skills Do You Need?",
+    "topic": "strategy",
+    "date": "2026-08",
+    "event": "The Cloud Girl · Priyanka Vergadia",
+    "url": "https://www.youtube.com/watch?v=Wo4vrUriEDU",
+    "thumbnail": "assets/talk-thumbnails/Wo4vrUriEDU.jpg",
+    "featured": true
+  }
+]
