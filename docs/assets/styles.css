@@ -133,7 +133,8 @@ cite { font-style: normal; }
 .archive-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-bottom: 14px; }
 .archive-heading h2 { margin: 0; }
 .archive-heading p { font-size: 13px; color: var(--secondary); margin: 0; }
-.article-list { list-style: none; padding: 0; margin: 0; }
+.article-list { list-style: decimal; padding: 0 0 0 3.5rem; margin: 0; }
+.article-list li::marker { color: var(--accent); font-variant-numeric: tabular-nums; }
 .article-list li { border-top: 1px solid var(--line); }
 .article-list li > a { display: block; padding: 20px 0; }
 .article-title { display: block; color: var(--ink); font-size: 16px; line-height: 1.55; }
@@ -302,3 +303,10 @@ cite { font-style: normal; }
  .site-header .nav-dropdown a { white-space:normal; }
 }
 @media print { .nav-toggle, .site-header .primary-nav { display:none; } }
+
+/* Year groups in the article archive. */
+.article-year { margin-top: 40px; }
+.article-year-heading { margin-bottom: 16px; }
+.article-year-heading h3 { margin: 0 0 8px; font-size: 26px; color: var(--accent); }
+.article-year-subjects { margin: 0; color: var(--secondary); font-size: 14px; font-style: italic; line-height: 1.6; }
+@media print { .article-year-heading { break-after: avoid; } }

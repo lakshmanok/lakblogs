@@ -6,6 +6,7 @@ Use --check to verify the committed page matches its data without writing.
 """
 import argparse
 import json
+from itertools import groupby
 from html import escape
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -13,11 +14,12 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'docs/articles.json'
 PAGE = ROOT / 'docs/articles.html'
+SUBJECTS = ROOT / 'docs/article-years.json'
 START = '<!-- BEGIN GENERATED ARTICLES -->'
 END = '<!-- END GENERATED ARTICLES -->'
 
 
-def render(articles):
+def render(articles, subjects):
     if not isinstance(articles, list) or not articles:
         raise ValueError('articles.json must contain a nonempty list of articles.')
     for i, article in enumerate(articles, 1):
@@ -31,6 +33,14 @@ def render(articles):
             raise ValueError(f'Article {i} needs a public HTTP(S) URL.')
         if not isinstance(article.get('featured', False), bool):
             raise ValueError(f'Article {i}: featured must be true or false.')
+        year, month = article.get('published_year'), article.get('published_month')
+        if type(year) is not int or not 1900 <= year <= 2099:
+            raise ValueError(f'Article {i}: published_year must be a four-digit year.')
+        if month is not None and (type(month) is not int or not 1 <= month <= 12):
+            raise ValueError(f'Article {i}: published_month must be 1–12 or null.')
+    years = [a['published_year'] for a in articles]
+    if years != sorted(years, reverse=True):
+        raise ValueError('Keep articles in newest-first year order.')
     featured = [a for a in articles if a.get('featured', False)]
     lines = []
     if featured:
@@ -44,14 +54,27 @@ def render(articles):
         lines += ['</div></section>']
     lines += ['<section class="article-archive" id="all-articles" aria-labelledby="archive-heading">',
               '<div class="archive-heading"><h2 id="archive-heading">All articles</h2>',
-              f'<p>{len(articles)} articles · Newest first</p></div>',
-              '<ol class="article-list">']
-    for a in articles:
-        title, url = escape(a['title']), escape(a['url'], quote=True)
-        host = escape(urlsplit(a['url']).hostname.removeprefix('www.'))
-        lines += [f'<li><a href="{url}"><span class="article-title">{title}</span>',
-                  f'<span class="article-source">{host} <span aria-hidden="true">↗</span></span></a></li>']
-    lines += ['</ol></section>']
+              f'<p>{len(articles)} articles · Newest first</p></div>']
+    number = len(articles)
+    for year, entries in groupby(articles, key=lambda a: str(a['published_year'])):
+        entries = list(entries)
+        topics = subjects.get(year, [])
+        if not isinstance(topics, list) or not 1 <= len(topics) <= 3 or any(not isinstance(t, str) or not t.strip() for t in topics):
+            raise ValueError(f'{year}: supply one to three subject areas in article-years.json.')
+        heading = year
+        lines += [f'<section class="article-year" aria-labelledby="year-{year}">',
+                  '<header class="article-year-heading">',
+                  f'<h3 id="year-{year}">{heading}</h3>',
+                  '<p class="article-year-subjects">Topics: ' + ', '.join(escape(topic) for topic in topics) + '.</p>']
+        lines += ['</header>', f'<ol class="article-list" reversed start="{number}">']
+        for a in entries:
+            title, url = escape(a['title']), escape(a['url'], quote=True)
+            host = escape(urlsplit(a['url']).hostname.removeprefix('www.'))
+            lines += [f'<li><a href="{url}"><span class="article-title">{title}</span>',
+                      f'<span class="article-source">{host} <span aria-hidden="true">↗</span></span></a></li>']
+        number -= len(entries)
+        lines += ['</ol></section>']
+    lines += ['</section>']
     return '\n'.join(lines)
 
 
@@ -65,7 +88,7 @@ def build():
         raise ValueError('articles.html must contain one pair of generated-section markers.')
     before, rest = original.split(START)
     _, after = rest.split(END)
-    updated = before + START + '\n' + render(articles) + '\n' + END + after
+    updated = before + START + '\n' + render(articles, json.loads(SUBJECTS.read_text(encoding='utf-8'))) + '\n' + END + after
     if args.check:
         if updated != original:
             raise SystemExit('Articles page is out of date. Run python3 scripts/build_articles.py')
