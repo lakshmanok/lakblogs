@@ -1,8 +1,28 @@
 [
   {
+    "title": "Plausible vs. Optimal: The Danger in using LLMs to write Investment Memos",
+    "url": "https://lakshmanok.medium.com/plausible-vs-optimal-the-danger-in-using-llms-to-write-investment-memos-70562568e47b",
+    "featured": true
+  },
+  {
+    "title": "Choosing between APIs, MCP, and Agent-to-Agent architectures",
+    "url": "https://lakshmanok.medium.com/choosing-between-apis-mcp-and-agent-to-agent-architectures-b88310e87733",
+    "featured": false
+  },
+  {
+    "title": "Beyond Buy vs Build: A new choice in the world of enterprise software",
+    "url": "https://medium.datadriveninvestor.com/beyond-buy-vs-build-a-new-choice-in-the-world-of-enterprise-software-5a6c03a58f5b",
+    "featured": false
+  },
+  {
+    "title": "The platform and the people you need to build Vertical AI",
+    "url": "https://aiadvances.org/the-platform-and-the-people-you-need-to-build-vertical-ai-af3f78505910",
+    "featured": false
+  },
+  {
     "title": "Private Equity and the frictionless future",
     "url": "https://medium.com/@lakshmanok/private-equity-and-the-frictionless-future-7eb409564558",
-    "featured": true
+    "featured": false
   },
   {
     "title": "I’m proven wrong on Playbooks and Google ADK",
